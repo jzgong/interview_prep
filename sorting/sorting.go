@@ -2,6 +2,20 @@ package sorting
 
 import "golang.org/x/exp/rand"
 
+func InsertSort(arr []int) []int {
+	ansArr := make([]int, len(arr))
+	copy(ansArr, arr)
+	for i := range ansArr {
+		for j := i; j > 0; j-- {
+			if ansArr[j-1] > ansArr[j] {
+				ansArr[j-1], ansArr[j] = ansArr[j], ansArr[j-1]
+			}
+		}
+	}
+
+	return ansArr
+}
+
 func QuickSort(arr []int) []int {
 	if len(arr) <= 1 {
 		return arr
